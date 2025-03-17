@@ -30,6 +30,6 @@ def generate_random_data():
 
 
 @app.get("/get_parking_lot_state/")
-async def get_parking_lot_state():
+def get_parking_lot_state():
     sleep(randint(1, 3))
     return generate_random_data()

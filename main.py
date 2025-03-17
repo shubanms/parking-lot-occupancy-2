@@ -1,7 +1,7 @@
 import random
 
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+# from fastapi.middleware.cors import CORSMiddleware
 
 from random import randint
 from time import sleep
@@ -9,15 +9,15 @@ from time import sleep
 
 app = FastAPI()
 
-origins = ["*"]
+# origins = ["*"]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 
 def generate_random_data():
@@ -33,3 +33,7 @@ def generate_random_data():
 def get_parking_lot_state():
     sleep(randint(1, 3))
     return generate_random_data()
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
